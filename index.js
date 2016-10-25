@@ -44,7 +44,8 @@ tape.Test.prototype.expect = function (sut) {
 
         expectation[curr] = function () {
 
-            const message = arguments.length >= originalAssert.length && arguments[originalAssert.length - 1] || "Expectation";
+            const defaultMessage = "Expect " + JSON.stringify(sut) + " " + curr + (originalAssert.length >= 2 ? (" " + JSON.stringify(expectation)) : "");
+            const message = arguments.length >= originalAssert.length && arguments[originalAssert.length - 1] || defaultMessage;
 
             try {
                 originalAssert.apply(originalExpectation, arguments);

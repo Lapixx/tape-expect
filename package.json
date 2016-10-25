@@ -1,0 +1,24 @@
+{
+  "name": "tape-expect",
+  "version": "0.0.1",
+  "description": "tape + expect",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lapixx/tape-expect.git"
+  },
+  "author": "Tijn Kersjes <tijn@divbyzero.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lapixx/tape-expect/issues"
+  },
+  "homepage": "https://github.com/Lapixx/tape-expect#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "expect": "^1.20.2",
+    "tape": "^4.6.2"
+  }
+}

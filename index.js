@@ -40,13 +40,15 @@ tape.Test.prototype.expect = function (sut) {
 
     return assertions.reduce((expectation, curr) => {
 
-        const originalAssert = expectation[curr].bind(originalExpectation);
+        const originalAssert = expectation[curr];
 
-        expectation[curr] = (expected, message) => {
+        expectation[curr] = function () {
+
+            const message = arguments.length >= originalAssert.length && arguments[originalAssert.length - 1] || "Expectation";
 
             try {
-                originalAssert(expected, message);
-                tapeInstance._assert(true, { message, operator: expect });
+                originalAssert.apply(originalExpectation, arguments);
+                tapeInstance._assert(true, { message, operator: "expect" });
             }
             catch (err) {
                 tapeInstance._assert(false, {
